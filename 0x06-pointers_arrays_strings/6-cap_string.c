@@ -17,7 +17,7 @@ char *cap_string(char *s)
 		for (sp = 0; sp < 13; s++)
 		{
 			if (s[i] == ws[sp] && islower(s[i + 1]))
-				s[i + 1] -= toupper(s[i + 1]);
+				s[i + 1] = toupper(s[i + 1]);
 		}
 		i++;
 	}
