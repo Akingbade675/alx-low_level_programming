@@ -14,6 +14,8 @@ char *cap_string(char *s)
 
 	while (i < len)
 	{
+		if (i == 0 && islower(s[i]))
+			s[i] = toupper(s[i]);
 		for (sp = 0; sp < 13; s++)
 		{
 			if (s[i] == ws[sp] && islower(s[i + 1]))
