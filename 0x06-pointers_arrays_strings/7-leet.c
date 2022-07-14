@@ -8,20 +8,16 @@
  */
 char *leet(char *s)
 {
-	int i, len = strlen(s);
+	int i, j, len = strlen(s);
+	char *a = "AEOTL", n[] = {52, 51, 48, 55, 49};
 
-	for (i = 0; i < len; i++)
+	for (i = 0; i < 5; i++)
 	{
-		if (s[i] == 97 || s[i] == 65)
-			s[i] = 4 + '0';
-		else if (s[i] == 'e' || s[i] == 'E')
-			s[i] = 3 + '0';
-		else if (s[i] == 'o' || s[i] == 'O')
-			s[i] = 0 + '0';
-		else if (s[i] == 't' || s[i] == 'T')
-			s[i] = 7 + '0';
-		else if (s[i] == 'l' || s[i] == 'L')
-			s[i] = 1 + '0';
+		for (j = 0; j < len; j++)
+		{
+			if (s[j] == a[i] || s[j] == a[i] + 32)
+				s[j] = n[i];
+		}
 	}
 	return (s);
 }
