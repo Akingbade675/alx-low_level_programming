@@ -8,7 +8,7 @@
  */
 void print_diagsums(int *a, int size)
 {
-	int s1, s2 = size - 1, i, sum, sum2;
+	int s1 = 0, s2 = size - 1, i, sum = 0, sum2 = 0;
 
 	for (i = 0; i < size; i++)
 	{
@@ -17,9 +17,5 @@ void print_diagsums(int *a, int size)
 		s1 += (size + 1);
 		s2 += (size - 1);
 	}
-	_putchar(s1 + '0');
-	_putchar(',');
-	_putchar(' ');
-	_putchar(s2 + '0');
-	_putchar('\n');
+	printf("%d, %d\n", sum, sum2);
 }
