@@ -1,6 +1,6 @@
 #include <stdlib.h>
 #include <string.h>
-#define LEN(s) strlen(s)
+#define LEN(s) ((int) strlen(s))
 /**
  * str_concat - A function that concatenates two strings
  * @s1: address of first string

@@ -9,7 +9,7 @@ array of integers to 0
  */
 int **alloc_grid(int width, int height)
 {
-	int **arr, j, i = 0;
+	int **arr, j, i;
 
 	/* check If width or height is 0 or negative */
 	if (width < 1 || height < 1)
@@ -17,6 +17,7 @@ int **alloc_grid(int width, int height)
 	arr = malloc(sizeof(int) * width * height);
 	if (arr == NULL)
 		return (NULL);
+	i = 0;
 	while (i < height)
 	{
 		for (j = 0; j < width; j++)
