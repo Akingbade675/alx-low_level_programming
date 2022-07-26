@@ -8,6 +8,18 @@ by your alloc_grid function
  */
 void free_grid(int **grid, int height)
 {
-	(void)(height);
+	int i; /* declare variable i for iterating */
+
+	/* if no memory was allocated, return */
+	if (grid == NULL)
+		return;
+
+	/**
+	 * free all 1D array in grid
+	 * NB: each element in a 2D array
+	 * is a 1D array
+	 */
+	for (i = 0; i < height; i++)
+		free(grid[i]);
 	free(grid);
 }

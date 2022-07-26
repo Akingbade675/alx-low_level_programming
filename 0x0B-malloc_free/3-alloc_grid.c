@@ -9,22 +9,41 @@ array of integers to 0
  */
 int **alloc_grid(int width, int height)
 {
-	int **arr = NULL, h = 0, j;
+	int **arr, *ar, h = 0, i, j;
 
-	/* check If width or height is 0 or negative */
+
+	/* return NULL if width or height is 0 or negative */
 	if (width < 1 || height < 1)
 		return (NULL);
+
+
+	/* allocate memory for pointers of each row(1D array) */
+	arr = malloc(sizeof(int *) * height);
+
+	/** if malloc fails, return NULL */
+	if (arr == NULL)
+		return (NULL);
+
+	/* loop through each element of grid (i.e. each 1D array) */
 	while (h < height)
 	{
-		arr[h] = malloc(sizeof(int) * width);
-		if (arr[h] == NULL)
+		/* allocate memory for each columnof grid */
+		ar = malloc(sizeof(int) * width);
+
+		/* if malloc fails, free all allocated memory and return NULL */
+		if (ar == NULL)
 		{
-			free(arr[h]);
+			for (i = 0; i < h; i++)
+				free(arr[i]);
+			free(arr);
 			return (NULL);
 		}
-		h++;
+		arr[h] =  ar;
+
+		/* assign 0 to each element of grid */
 		for (j = 0; j < width; j++)
 			arr[h][j] = 0;
+		h++;
 	}
 	return (arr);
 }
