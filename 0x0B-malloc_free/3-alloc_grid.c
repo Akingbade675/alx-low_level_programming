@@ -9,20 +9,20 @@ array of integers to 0
  */
 int **alloc_grid(int width, int height)
 {
-	int **arr, j, i;
+	int **arr, *ar, h = 0, i, j;
 
 	/* check If width or height is 0 or negative */
 	if (width < 1 || height < 1)
 		return (NULL);
-	arr = malloc(sizeof(int) * width * height);
-	if (arr == NULL)
-		return (NULL);
-	i = 0;
-	while (i < height)
+	while (h < height)
 	{
+		ar = malloc(sizeof(int) * width);
+		if (ar == NULL)
+			return (NULL);
+		arr = &ar;
+	}
+	for (i = 0; i < height; i++)
 		for (j = 0; j < width; j++)
 			arr[height][width] = 0;
-		i++;
-	}
 	return (arr);
 }
