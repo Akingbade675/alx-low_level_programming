@@ -76,7 +76,7 @@ A function that returns a pointer to a 2 dimensional array of integers.
   </a>
 </h3>
 
-A function that frees a 2 dimensional grid previously created by your [`alloc_grid`](https://github.com/Akingbade675/alx-low_level_programming/edit/master/0x0B-malloc_free/README.md#------3-alloc_gridc--) function.
+A function that frees a 2 dimensional grid previously created by your [`alloc_grid`](https://github.com/Akingbade675/alx-low_level_programming/master/0x0B-malloc_free/README.md#------3-alloc_gridc--) function.
 
 > - Prototype: `void free_grid(int **grid, int height);`
 > - Note that we will compile with your alloc_grid.c file. Make sure it compiles.
