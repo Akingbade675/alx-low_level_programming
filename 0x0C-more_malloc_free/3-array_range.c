@@ -8,7 +8,7 @@
  */
 int *array_range(int min, int max)
 {
-	int i, m;
+	int i, m, *arr;
 
 	/* macro - return NULL, if min > max */
 	RETNULL(min > max);
@@ -17,7 +17,7 @@ int *array_range(int min, int max)
 	for (i = 1; m < max; i++)
 		m++;
 
-	int *arr = malloc(sizeof(*arr) * i);
+	arr = malloc(sizeof(*arr) * i);
 
 	/* macro that returns NULL, if condition is true */
 	/* if malloc fail, return NULL */

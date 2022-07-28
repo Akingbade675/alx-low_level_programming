@@ -1,5 +1,5 @@
 #include "main.h"
-#include <stdio.h>
+#include <stdlib.h>
 
 /**
  * string_nconcat - a function that concatenates two strings
@@ -31,19 +31,4 @@ char *string_nconcat(char *s1, char *s2, unsigned int n)
 	cptr[i] = '\0';
 
 	return (cptr);
-}
-
-/**
- * main - check the code
- *
- * Return: Always 0.
- */
-int main(void)
-{
-	char *concat;
-
-	concat = string_nconcat(NULL, "School !!!", 14);
-	printf("%s\n", concat);
-	free(concat);
-	return (0);
 }
