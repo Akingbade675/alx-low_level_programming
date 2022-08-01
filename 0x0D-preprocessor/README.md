@@ -1,7 +1,7 @@
 # 0x0D-preprocessor
 
 
-__What I learnt from this project: __
+__What I learnt from this project __
 
 - macros and how to use them
 - the most common predefined macros
