@@ -7,7 +7,7 @@
  * @argv: argument vector, array of pointers
  * Return: 0 if success
  */
-int main(int argc, char *argv[])
+int main(int argc, char **argv)
 {
 	int result;
 	int (*op_func)(int, int);
