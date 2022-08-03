@@ -2,7 +2,7 @@
 #include <stdlib.h>
 
 void print_opcodes(char *);
-static int bytes;
+int bytes;
 
 /**
  * main - Entry point
@@ -26,14 +26,14 @@ int main(int argc, char *argv[])
 		exit(2);
 	}
 
-	print_opcodes((char *)main);
+	print_opcodes((char *)&main);
 
 	return (0);
 }
 
 /**
- * print_opcodes - prints opcode of a f
- * @code: address of
+ * print_opcodes - prints opcode of a program
+ * @code: address of function
  */
 void print_opcodes(char *code)
 {
