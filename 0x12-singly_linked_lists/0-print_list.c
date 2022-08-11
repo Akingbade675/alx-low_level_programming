@@ -7,17 +7,17 @@
  */
 size_t print_list(const list_t *h)
 {
-	size_t lnode = 0;
+	unsigned int lnode = 0;
 
 	if (!h)
 		return (0);
 
 	do {
 		if (!h->str)
-			printf("[0] (nil)");
+			printf("[0] (nil)\n");
 		else
 		{
-			printf("[%u] %s", h->len, h->str);
+			printf("[%u] %s\n", h->len, h->str);
 			lnode++;
 		}
 		h = h->next;
