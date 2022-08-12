@@ -8,34 +8,26 @@
  */
 list_t *add_node_end(list_t **head, const char *str)
 {
-	unsigned int len = 0, i = 0;
-	list_t *end = *head, *node;
-
-	if (!head)
-		return (NULL);
+	unsigned int len = 0;
+	list_t *end;
+	list_t *node;
 
 	node = malloc(sizeof(*node));
 	if (!node)
 		return (NULL);
 
-	if (str)
-	{
-		node->str = strdup(str);
-		while (str[i])
-			len++;
-		node->len = len;
-	}
-	else
-	{
-		node->str = "(nil)";
-		node->len = 0;
-	}
+	node->str = strdup(str);
+	while (str[len++])
+		;
+	node->len = len;
+
 	node->next = NULL;
 
 	if (!*head)
 		*head = node;
 	else
 	{
+		end = *head;
 		while (end->next)
 			end = end->next;
 		end->next = node;

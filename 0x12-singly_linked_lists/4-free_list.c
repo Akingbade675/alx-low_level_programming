@@ -6,11 +6,16 @@
  */
 void free_list(list_t *head)
 {
-	if (!head)
-		return;
+	list_t *tmp;
 
-	if (head->next)
-		free_list(head->next);
-	free(head->str);
-	free(head);
+	while (head != NULL)
+	{
+		/* assign head node to tmp node */
+		tmp = head;
+		/* make head point to next node on list */
+		head = head->next;
+		/* safely free node inside of tmp */
+		free(tmp->str);
+		free(tmp);
+	}
 }
