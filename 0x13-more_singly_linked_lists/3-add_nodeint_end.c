@@ -17,9 +17,14 @@ listint_t *add_nodeint_end(listint_t **head, const int n)
 	node->n = n;
 	node->next = NULL;
 
-	for ( ; tail->next; tail = tail->next)
-		;
-	tail->next = node;
+	if (!*head)
+		*head = node;
+	else
+	{
+		for ( ; tail->next; tail = tail->next)
+			;
+		tail->next = node;
+	}
 
 	return (node);
 }

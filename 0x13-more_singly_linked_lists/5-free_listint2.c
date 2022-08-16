@@ -6,10 +6,12 @@
  */
 void free_listint2(listint_t **head)
 {
+	listint_t *cur;
+	static int i;
+
 	if (*head)
 	{
-		listint_t *cur = (*head)->next;
-		static int i;
+		cur = (*head)->next;
 
 		if (cur)
 		{
