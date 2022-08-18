@@ -8,7 +8,7 @@ void free_listint2(listint_t **head)
 {
 	listint_t *cur;
 
-	if (*head)
+	if (*head && head)
 	{
 		while (*head != NULL)
 		{
