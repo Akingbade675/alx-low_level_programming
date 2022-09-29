@@ -7,12 +7,11 @@
  */
 size_t dlistint_len(const dlistint_t *h)
 {
-	dlistint_t *head = h;
 	size_t i;
 
-	for (i = 0; head; i++)
+	for (i = 0; h; i++)
 	{
-		head = head->next;
+		h = h->next;
 	}
 
 	return (i);
