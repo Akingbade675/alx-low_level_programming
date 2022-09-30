@@ -6,10 +6,9 @@
  */
 void free_dlistint(dlistint_t *head)
 {
-	if (!head)
-		return;
-
-	free_dlistint(head->next);
-	free(head);
-	return;
+	if (head)
+	{
+		free_dlistint(head->next);
+		free(head);
+	}
 }
