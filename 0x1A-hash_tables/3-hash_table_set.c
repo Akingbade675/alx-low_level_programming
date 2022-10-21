@@ -11,7 +11,7 @@
  */
 int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 {
-	unsigned long int index, size = ht->size;
+	unsigned long int i, index, size = ht->size;
 	hash_node_t *node, **cell;
 	char *value_copy;
 
@@ -27,11 +27,14 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 	/* cell would contain the address at index in the array */
 	cell = ((ht->array) + index);
 
-	if (*cell)
+	for (i = index; ht->array[i]; i++)
 	{
-		free((*cell)->value);
-		(*cell)->value = value_copy;
-		return (1);
+		if (strcmp(ht->array[i]->key, key) == 0)
+		{
+			free(ht->array[i]->value);
+			ht->array[i]->value = value_copy;
+			return (1);
+		}
 	}
 
 	node = malloc(sizeof(*node));
