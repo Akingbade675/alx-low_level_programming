@@ -15,23 +15,22 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 	hash_node_t *node, **cell;
 	char *value_copy;
 
-	if (key == NULL || *key == '\0' || value == NULL || ht == NULL)
-		return (0);
-
 	index = key_index((unsigned char *)key, size);
 
-	/* cell would contain the address at index in the array */
-	cell = ((ht->array) + index);
+	if (ht == NULL || key == NULL || *key == '\0' || value == NULL)
+		return (0);
 
 	value_copy = strdup(value);
 	if (!value_copy)
 		return (0);
 
+	/* cell would contain the address at index in the array */
+	cell = ((ht->array) + index);
+
 	if (*cell)
 	{
 		free((*cell)->value);
 		(*cell)->value = value_copy;
-		free(value_copy);
 		return (1);
 	}
 
