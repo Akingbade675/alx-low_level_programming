@@ -7,35 +7,31 @@
  */
 void hash_table_print(const hash_table_t *ht)
 {
-	hash_node_t **cell;
-	long int size = ht->size;
-	int end = 0;
+	hash_node_t *node;
+	unsigned long int i;
+	unsigned char comma_flag = 0;
 
-	/**
-	 * assign the address of the first cell
-	 * of the hash table to ``cell``
-	 */
-	cell = ht->array;
+	if (ht == NULL)
+		return;
 
-	putchar('{');
-
-	while (size >= 0)
+	printf("{");
+	for (i = 0; i < ht->size; i++)
 	{
-		/* checks if the value at the current cell is not null */
-		if (*cell)
+		if (ht->array[i] != NULL)
 		{
-			if (end)
-			{
+			if (comma_flag == 1)
 				printf(", ");
-				end = 0;
+
+			node = ht->array[i];
+			while (node != NULL)
+			{
+				printf("'%s': '%s'", node->key, node->value);
+				node = node->next;
+				if (node != NULL)
+					printf(", ");
 			}
-			printf("'%s': '%s'", (*cell)->key, (*cell)->value);
-			end = 1;
+			comma_flag = 1;
 		}
-
-		cell++;
-		size--;
 	}
-
 	printf("}\n");
 }

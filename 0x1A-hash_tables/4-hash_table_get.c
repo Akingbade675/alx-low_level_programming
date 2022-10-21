@@ -10,17 +10,19 @@
  */
 char *hash_table_get(const hash_table_t *ht, const char *key)
 {
-	unsigned long int index, size = ht->size;
 	hash_node_t *node;
+	unsigned long int index;
 
-	index = key_index((unsigned char *)key, size);
-
-	/* node points to the cell value at [index] */
-	node = (ht->array)[index];
-
-	/* check if the value is not null, otherwise return NULL */
-	if (node)
-		return (node->value);
-	else
+	if (ht == NULL || key == NULL || *key == '\0')
 		return (NULL);
+
+	index = key_index((const unsigned char *)key, ht->size);
+	if (index >= ht->size)
+		return (NULL);
+
+	node = ht->array[index];
+	while (node && strcmp(node->key, key) != 0)
+		node = node->next;
+
+	return ((node == NULL) ? NULL : node->value);
 }
