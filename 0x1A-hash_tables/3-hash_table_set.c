@@ -13,24 +13,39 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 {
 	unsigned long int index, size = ht->size;
 	hash_node_t *node, **cell;
+	char *value_copy;
 
-	index = key_index((unsigned char *)key, size);
-
-	node = malloc(sizeof(*node));
-	if (!node)
+	if (key == NULL || *key == '\0' || value == NULL || ht == NULL)
 		return (0);
 
-	node->key = (char *)key;
-	node->value = strdup(value);
-	node->next = NULL;
+	index = key_index((unsigned char *)key, size);
 
 	/* cell would contain the address at index in the array */
 	cell = ((ht->array) + index);
 
-	/* check if the cell is not empty */
-	/* handle collisions */
+	value_copy = strdup(value);
+	if (!value_copy)
+		return (0);
+
 	if (*cell)
-		node->next = *cell;
+	{
+		free((*cell)->value);
+		(*cell)->value = value_copy;
+		free(value_copy);
+		return (1);
+	}
+
+	node = malloc(sizeof(*node));
+	if (!node)
+	{
+		free(value_copy);
+		return (0);
+	}
+
+	node->key = (char *)key;
+	node->value = value_copy;
+	node->next = NULL;
+
 	*cell = node;
 
 	return (1);
