@@ -7,7 +7,7 @@
  * @end: index of array to end printing
  */
 void printBtw(int *array, size_t start, size_t end)
-{	
+{
 	size_t i;
 
 	printf("Searching in array:");
