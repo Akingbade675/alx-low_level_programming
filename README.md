@@ -80,7 +80,7 @@ To access any project you are willing to view , please proceed like this:
 
 ## Author
 
-* **Pericles Adjovi** <[Pericles001](https://github.com/Pericles001)>
+* **Abdulbasit Akingbade** <[AKingbade675](https://github.com/akingbade675)>
 
 ## Aknowledgements
 
